@@ -1,19 +1,46 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div>
+      <hscroll-table :rows="rows" :cols="cols" />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HscrollTable from "./components/HscrollTable.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    HscrollTable,
+  },
+  data() {
+    return {
+      cols: [],
+      rows: [],
+    };
+  },
+  mounted() {
+    for (let col = 0; col < 30; col++) this.cols.push({ key: "text" + col });
+
+    for (let row = 1; row < 200; row++) {
+      let item = {
+        class:
+          row % 10 == 0
+            ? "scrollrow"
+            : row % 10 == 1
+            ? "hilight1"
+            : row % 10 == 9
+            ? "hilight2"
+            : "",
+      };
+      for (let col = 0; col < 30; col++)
+        item["text" + col] = "Row " + row + " Col " + col;
+
+      this.rows.push(item);
+    }
+  },
+};
 </script>
 
 <style>
