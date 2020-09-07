@@ -2,7 +2,7 @@
   "name": "vue-hscroll-table",
   "homepage": "https://etonetot.github.io/vue-hscroll-table/", 
   "main": "./lib/vue-hscroll-table.common.js",   
-  "version": "0.1.0",
+  "version": "0.1.1",
   "scripts": {
     "serve": "vue-cli-service serve",
     "predeploy": "vue-cli-service build --mode demo", 
